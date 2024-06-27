@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Executable",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/dsb_protons", // Adjust path if necessary
+            "args": [], // Add any command line arguments if needed
+            "stopAtEntry": false, // Set to true if you want to stop at the entry point
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Move Executable", // Ensure the build and move tasks are run before launching
+            "miDebuggerPath": "/usr/bin/gdb", // Adjust this path if gdb is installed elsewhere
+            "logging": {
+                "trace": true,
+                "traceResponse": true,
+                "engineLogging": true
+            }
+        }
+    ]
+}

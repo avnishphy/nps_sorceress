@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake Configure",
+            "type": "shell",
+            "command": "/bin/bash",
+            "args": [
+                "-c", 
+                "source /group/nps/singhav/setup.csh && cmake -S ${workspaceFolder} -B ${workspaceFolder}/build"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake Build",
+            "type": "shell",
+            "command": "/bin/bash",
+            "args": [
+                "-c", 
+                "source /group/nps/singhav/setup.csh && cmake --build ${workspaceFolder}/build"
+            ],
+            "dependsOn": "CMake Configure",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Move Executable",
+            "type": "shell",
+            "command": "cp",
+            "args": [
+                "${workspaceFolder}/build/dsb_protons",
+                "${workspaceFolder}"
+            ],
+            "dependsOn": "CMake Build",
+            "problemMatcher": [],
+            "detail": "Move the built executable to the source directory."
+        }
+    ]
+}
