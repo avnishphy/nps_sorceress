@@ -17,4 +17,8 @@ This script is designed to search for `RVarDef` patterns in all `.cxx` files wit
 
 1. **Ensure the Script is Executable**:
    ```bash
-   chmod +x your_script_name.sh
+   chmod +x grep_rvardef_variables.sh
+
+2. **Run the script as ./grep_rvardef_variables.sh**
+3. **It will store the output as grep_rvardef_variables_output.txt**
+4. **The output will have all the NPS variables first and then the general (hcana) variables.**
